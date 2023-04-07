@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>nikohadouken</groupId>
-  <artifactId>keycloak-event-listener-spi</artifactId>
-  <name>keycloak-event-listener-spi</name>
+  <artifactId>keycloak-webhooks-spi</artifactId>
+  <name>keycloak-webhooks</name>
   <version>1.0</version>
-  <url>https://github.com/NikoHadouken/keycloak-event-listener-spi</url>
+  <url>https://github.com/NikoHadouken/keycloak-webhooks</url>
   <build>
     <finalName>${project.groupId}.${project.artifactId}-v${project.version}</finalName>
     <plugins>
