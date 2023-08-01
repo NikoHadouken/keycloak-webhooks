@@ -18,7 +18,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   keycloak:
-    image: bitnami/keycloak:latest
+    image: bitnami/keycloak:22.0.1
     depends_on:
       - postgres
     ports:
@@ -36,5 +36,5 @@ services:
       KEYCLOAK_DATABASE_USER: postgres
       KEYCLOAK_DATABASE_PASSWORD: password
       KEYCLOAK_DATABASE_SCHEMA: public
-      KEYCLOAK_WEBHOOKS_BASE_URL: http://172.17.0.1:5009/keycloak
+      KEYCLOAK_WEBHOOKS_BASE_URL: http://172.17.0.1:5000/keycloak
       KEYCLOAK_WEBHOOKS_API_KEY: zLW-v_q9BmYPbJT6VUQtoUBI3LqPFn8rxsXwT_DVZJgDRD5AMfSz9ACK

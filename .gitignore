@@ -38,6 +38,7 @@ build/
 ### Mac OS ###
 .DS_Store
 
-keycloak/**/*
+keycloak/providers/*
+!keycloak/providers/.gitkeep
 
 node_modules
