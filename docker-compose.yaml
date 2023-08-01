@@ -1,0 +1,40 @@
+version: '3.2'
+
+volumes:
+  postgres_data:
+
+
+services:
+
+  postgres:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      # - POSTGRES_USER # defaults to postgres
+      POSTGRES_DB: keycloak # defaults to value of POSTGRES_USER
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  keycloak:
+    image: bitnami/keycloak:latest
+    depends_on:
+      - postgres
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./keycloak/providers/:/opt/bitnami/keycloak/providers/
+    environment:
+      KEYCLOAK_CREATE_ADMIN_USER: true
+      KEYCLOAK_ADMIN_USER: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+      KEYCLOAK_MANAGEMENT_USER: manager
+      KEYCLOAK_MANAGEMENT_PASSWORD: password
+      KEYCLOAK_DATABASE_HOST: postgres
+      KEYCLOAK_DATABASE_NAME: keycloak
+      KEYCLOAK_DATABASE_USER: postgres
+      KEYCLOAK_DATABASE_PASSWORD: password
+      KEYCLOAK_DATABASE_SCHEMA: public
+      KEYCLOAK_WEBHOOKS_BASE_URL: http://172.17.0.1:5009/keycloak
+      KEYCLOAK_WEBHOOKS_API_KEY: zLW-v_q9BmYPbJT6VUQtoUBI3LqPFn8rxsXwT_DVZJgDRD5AMfSz9ACK
