@@ -8,6 +8,7 @@ router.all("*", (req, res) => {
   console.log({
     url: req.url,
     method: req.method,
+    headers: req.headers,
   });
 
   console.log('BODY', req.body);
