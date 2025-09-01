@@ -18,7 +18,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   keycloak:
-    image: bitnami/keycloak:22.0.1
+    image: bitnami/keycloak:26
     depends_on:
       - postgres
     ports:
